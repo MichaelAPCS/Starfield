@@ -1,15 +1,33 @@
 //your code here
+NormalParticle[] C;
 void setup()
 {
-	//your code here
+	size(500,500);
+  
 }
 void draw()
 {
-	//your code here
+	C.move();
+  C.show();
+  //your code here
 }
 class NormalParticle
 {
 	//your code here
+double yPos,xPos;
+NormalParticle(double x, double y){
+  yPos = y;
+  xPos = x;
+}
+void move()
+{
+yPos +=1;
+xPos +=1;
+}
+void show()
+{
+ellipse((float)xPos,(float)yPos,30,30);
+}
 }
 interface Particle
 {
@@ -23,4 +41,3 @@ class JumboParticle //uses inheritance
 {
 	//your code here
 }
-
