@@ -1,43 +1,58 @@
 //your code here
-NormalParticle[] C;
+
+NormalParticle[] C = new NormalParticle[20];
 void setup()
 {
-	size(500,500);
-  
+  size(500, 500);
+  for (int i=0; i<C.length; i++) {
+    C[i] = new NormalParticle();
+  }
 }
 void draw()
 {
-	C.move();
-  C.show();
+  background(0);
+  for (int i=0; i<C.length; i++) {
+    
+    C[i].move();
+    C[i].show();
+    
+  }
   //your code here
 }
-class NormalParticle
+class NormalParticle implements Particle
+{	//your code here
+  double y, x, speed, angle;
+  float myColor;
+  NormalParticle() {
+    y = x = height/2;
+    speed = Math.random()*20;
+    angle = Math.random()*2*Math.PI;
+    myColor = (int)Math.random()*255;
+  }
+
+public void move()
 {
-	//your code here
-double yPos,xPos;
-NormalParticle(double x, double y){
-  yPos = y;
-  xPos = x;
+  y += Math.sin(angle)*speed;
+  x += Math.cos(angle)*speed ;
 }
-void move()
+public void show()
 {
-yPos +=1;
-xPos +=1;
-}
-void show()
-{
-ellipse((float)xPos,(float)yPos,30,30);
+  
+  fill(myColor,255,255);
+  ellipse((float)x, (float)y, 30, 30);
 }
 }
 interface Particle
 {
-	//your code here
+  //your code here
+  public void show();
+  public void move();
 }
 class OddballParticle //uses an interface
 {
-	//your code here
+  //your code here
 }
 class JumboParticle //uses inheritance
 {
-	//your code here
+  //your code here
 }
