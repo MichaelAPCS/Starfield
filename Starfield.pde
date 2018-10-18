@@ -21,19 +21,28 @@ void draw()
 }
 class NormalParticle implements Particle
 {	//your code here
-  double y, x, speed, angle;
+  double y, x, speed, angle,sphereRadius,orbitX,orbitY;
   float myColor;
   NormalParticle() {
     y = x = height/2;
-    speed = Math.random()*20;
+    //speed = Math.random()*20;
+    speed = Math.PI/16;
     angle = Math.random()*2*Math.PI;
     myColor = (int)Math.random()*255;
+    sphereRadius = 10;
+    double orbitX = 100; 
+    double orbitY = 100;
   }
 
 public void move()
 {
-  y += Math.sin(angle)*speed;
-  x += Math.cos(angle)*speed ;
+  //y += Math.sin(angle)*speed;
+  //x += Math.cos(angle)*speed ;
+   angle += .03;
+   x = Math.cos(angle) * (width / 3) + width/4;
+   y = Math.sin(angle) * (height / 3) + width/4; 
+
+   
 }
 public void show()
 {
