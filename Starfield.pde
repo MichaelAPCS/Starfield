@@ -24,7 +24,7 @@ class NormalParticle implements Particle
   double y, x, speed, angle,sphereRadius,orbitX,orbitY;
   float myColor;
   NormalParticle() {
-    y = x = height/2;
+    y = x = Math.random()*100;
     //speed = Math.random()*20;
     speed = Math.PI/16;
     angle = Math.random()*2*Math.PI;
