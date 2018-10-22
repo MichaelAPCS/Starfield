@@ -24,12 +24,12 @@ class NormalParticle implements Particle
   double y, x, speed, angle,sphereRadius,orbitX,orbitY;
   float myColor;
   NormalParticle() {
-    y = x = Math.random()*100;
+    y = x = width/2;
     //speed = Math.random()*20;
     speed = Math.PI/16;
     angle = Math.random()*2*Math.PI;
     myColor = (int)Math.random()*255;
-    sphereRadius = 10;
+    sphereRadius = 30;
     double orbitX = 100; 
     double orbitY = 100;
   }
@@ -39,8 +39,8 @@ public void move()
   //y += Math.sin(angle)*speed;
   //x += Math.cos(angle)*speed ;
    angle += .03;
-   x = Math.cos(angle) * (width / 3) + width/4;
-   y = Math.sin(angle) * (height / 3) + width/4; 
+   x += Math.cos(angle) * speed*15;
+   y += Math.sin(angle) * speed*15; 
 
    
 }
@@ -56,6 +56,10 @@ interface Particle
   //your code here
   public void show();
   public void move();
+}
+class JustAParticle implements Particle 
+{
+  
 }
 class OddballParticle //uses an interface
 {
